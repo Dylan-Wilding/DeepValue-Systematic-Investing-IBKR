@@ -2,7 +2,7 @@
 Python script that filters equities for deep value / GARP characteristics and routes orders via the Interactive Brokers API. Also generates xlxs files for automated reporting.
 
 ## Core Architecture
-1. **Signal Generation:** Filters universe based on forward P/E, forward PEG ratios, and past earnings surprise% scores, determining how predictable the company's earnings are. 
+1. **Signal Generation:** Filters universe based on forward P/E, forward PEG ratios, and past earnings surprise% scores, determining how predictable the company's earnings are, how cheap the company is relative to their implied 1Y growth rate (intuition : a company with an extremely predictable business model [near 0% difference between estimated EPS and released EPS], high estimated growth and trading at very low forward valuation constitute attarctive invetsment opportunities). 
 2. **Execution Gateway:** Connects to IBKR Gateway using ib_async. Handles dynamic order routing and tracks precise commission fees, generating reconciliation and fee reports.
 3. **Immutable Ledger:** Generates persistent snapshots logging entry/exit regimes, capital deployed, and metric states at execution in tabular xlxs formats. Reporting is fully automated, and allows for ad-hoc analysis. 
 
